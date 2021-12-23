@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_pokedex/model/pokemon_model.dart';
 
@@ -18,7 +17,7 @@ class PokeApi {
     } else {
       return [];
     }
-    // debugPrint(_list.length.toString());
+    //debugPrint(_list.length.toString());
     // debugPrint(_list.first.toString());
 
     // debugPrint(pokeList['pokemon'].toString());

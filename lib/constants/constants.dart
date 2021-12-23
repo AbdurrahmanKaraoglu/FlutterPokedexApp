@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Constants {
   Constants._(); // Artık bundan kimse nesne üretemez çünkü gizli.
@@ -7,27 +7,50 @@ class Constants {
   static const String title = 'Pokedex';
 
   static TextStyle getTitleTextStyle() {
-    return const TextStyle(
+    return TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,
-      fontSize: 48,
+      fontSize: _calculateFontSize(35),
     );
   }
 
   static const String pokeballImageUrl = 'images/pokeball.png';
 
   static TextStyle getPokemonNameTextStyle() {
-    return const TextStyle(
+    return TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,
-      fontSize: 30,
+      fontSize: _calculateFontSize(18),
     );
   }
 
   static TextStyle getTypeChipTextStyle() {
-    return const TextStyle(
+    return TextStyle(
       color: Colors.white,
-      fontSize: 18,
+      fontSize: _calculateFontSize(18),
+    );
+  }
+
+  static _calculateFontSize(int size) {
+    if (ScreenUtil().orientation == Orientation.portrait) {
+      return size.sp;
+    } else {
+      return (size * 0.6).sp;
+    }
+  }
+
+  static getPokeInfoTextStyle() {
+    return TextStyle(
+      color: Colors.black,
+      fontSize: _calculateFontSize(16),
+    );
+  }
+
+  static getPokeInfoLabelTextStyle() {
+    return TextStyle(
+      color: Colors.black,
+      fontSize: _calculateFontSize(20),
+      fontWeight: FontWeight.bold,
     );
   }
 }

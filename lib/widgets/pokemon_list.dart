@@ -29,9 +29,13 @@ class _PokemonListState extends State<PokemonList> {
           List<PokemonModel> _listem = snapshot.data!;
 
           return GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: ScreenUtil().orientation == Orientation.portrait ? 2 : 3),
-              itemBuilder: (context, index) => PokeListItem(pokemon: _listem[index]));
+            itemCount: _listem.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: ScreenUtil().orientation == Orientation.portrait ? 2 : 3),
+            itemBuilder: (context, index) => PokeListItem(
+              pokemon: _listem[index],
+            ),
+          );
         } else if (snapshot.hasError) {
           return const Center(
             child: Text('Veri Gelmedi!!!'),
